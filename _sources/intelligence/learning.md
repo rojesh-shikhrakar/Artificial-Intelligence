@@ -1,0 +1,18 @@
+Learning to adapt to new circumstances is crucial process for all living things to survive in this ever changing world. Here are few examples:
+
+- Bacteria, such as Escherichia coli, move towards nutrients and away from toxins through a process called chemotaxis. A molecular signaling pathway allows the bacteria to "remember" recent concentrations of chemicals and adjust their movements based on changes in these concentrations. [Chemotaxis also plays ecological roles, such as navigational guidance in colony expansion, localization of hosts or symbiotic partners and contribution to microbial diversity by the generation of spatial segregation in bacterial communities](https://www.nature.com/articles/s41579-022-00709-w).
+- Protozoa, like the ciliate Tetrahymena exhibit a form of habituation, where the response to a stimulus (chemical irritant) decreases with repeated exposure.
+- [Slime molds, such as Physarum polycephalum, starts as a single cell, can merge with other cells to form a larger, multicellular structure, that exhibit complex behaviors, such as finding the shortest path through a maze to reach food, by sensing and adapting to their environment. This demonstrates a form of spatial "memory" and decision-making without a central nervous system.](https://doi.org/10.1093/beheco/art032)
+- Plants are capable of sensing and reacting to their environment through phototropism (towards light source), gravitropism (roots grow downwards, shoots upwards), thigmotropism (sense touch, climbing tendrils wrap around objects of support).
+- Some plants even exhibit a form of memory, Mimosa pudica (touch-me-not plant) can learn to ignore repeated, harmless stimuli and will stop closing its leaves after a few exposures. Venus flytrap can count the number of times an insect touches its sensory hairs before deciding to close, optimizing energy use for capturing prey.
+- [Each generations of Monarch butterflies migrate from Canada to Mexico, navigating a journey that they have never travelled before using the sun's polarized lights, air currents and thermals.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2929297/)
+- Adaptation to environment is more evident in animals. [Crows have been observed to use sticks to retrieve food from tight spaces, drop pebbles to drink water, demonstrating an understanding of cause and effect, a key element of learning](https://www.sciencenews.org/article/tool-use-crow-about). [Octopuses are also known to solve puzzles, escape from enclosures and even use tools.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152048)
+- [Parrots are known for ther immitative vocal learning allowing them for social interaction, identify local dialects among parrots as well as for attention.](https://www.scientificamerican.com/article/experts-parrots-mimic/). [Elephants have demonstrate auditory learning and social intelligence to distinguish between different human languages even discern the ethinicity, gender and age from human voice.](https://www.pnas.org/doi/10.1073/pnas.1321543111)
+- [Rats are known to avoid poison if they survive initial bates, demonstrating the ability to associate the bate with sickness](https://www.sciencedirect.com/science/article/abs/pii/S0950560153800110)
+
+## Learning in Humans
+
+A human starts to learn even before its born. The fetus can recognize its mother's voice and respond to it.
+
+When a baby is born, it has a set of innate reflexes, such as sucking, crying, rooting, and grasping. These reflexes are hardwired into the brain and are not learned. As the baby grows, it learns to control its body movements through a process called motor learning.
+

@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Probability Theory &#8212; Artificial Intelligence</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mathematics/prob-stats/Probability';</script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Distributions" href="Distributions.html" />
+    <link rel="prev" title="Descriptive Statistics" href="DescriptiveStatistics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Artificial Intelligence - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Artificial Intelligence - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/history.html">The Pursuit of AI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Quest of Intelligence</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../intelligence/natural-intelligence.html">Natural Intelligence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/LinearAlgebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ProbStats.html">Probability and Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Descriptive Statistics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Distributions.html">Distributions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence/edit/master/mathematics/prob-stats/Probability.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/mathematics/prob-stats/Probability.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Probability Theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-space">Probabilistic Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-laws-or-axioms">Probabilistic laws or axioms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-probability">Conditional Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-events">Independence of Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-rule">Bayes Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation">Expectation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-theory">
+<h1>Probability Theory<a class="headerlink" href="#probability-theory" title="Link to this heading">#</a></h1>
+<p>The concept of probability of a particular event is subject to different interpretations. There have been two main interpretation to define probability.</p>
+<ol class="arabic simple">
+<li><p>Frequentists (Empirical) Approach: Frequentists define probability in terms of frequency of occurrence, as a percentage or fraction of success or occurrence of the event (from the event space <span class="math notranslate nohighlight">\(E\)</span>) in all possible outcomes of similar situations (called the sample space <span class="math notranslate nohighlight">\(\Omega\)</span>). Probability of coin toss returns head. $<span class="math notranslate nohighlight">\(Probability = \dfrac{\# \text{ of favorable outcomes}}{\# \text{ of all possible outcomes}} = \frac{E}{\Omega}\)</span>$</p></li>
+</ol>
+<p>This interpretation of probability of an event here is the limit of the relative frequency with which the event occurs, in repeated trials (upto <span class="math notranslate nohighlight">\(\infty\)</span>) under the same conditions.
+$<span class="math notranslate nohighlight">\(P(E) = \lim_{n\to\infty} \frac{n_E}{n}\)</span>$</p>
+<ol class="arabic simple" start="2">
+<li><p>Bayesian (Subjective Belief) Approch: which interprets the concept of probability as reasonable expectation representing a state of knowledge or as quantification of a personal belief. Bayesian interpretation can be seen as an extension of propositional logic that enables reasoning with hypotheses with propositions whose truth or falsity is unknown. To evaluate the probability of a hypothesis, the Bayesian probabilist specifies a prior probability and update it with new relevant data or evidence to a posterior probability. eg. Probability that the president will be re-elected.</p></li>
+</ol>
+<p>Despite the different interpretation for probability, we have same general rules and a single way of evaluating, leading to unique answers, but in statistical questions, there may not be a unique answers. Different statistical methods have different desirable properties leading to different answers. Often times misuse of methods for a particular situation could lead to erroneous answers. The two approaches permeates to statistics as well</p>
+<ul class="simple">
+<li><p>Classical Statistics : Parameter estimation without Priors</p>
+<ul>
+<li><p>Maximum Likelihood Estimation (MLE)</p></li>
+<li><p>Estimating Sample Mean</p></li>
+<li><p>Confidence Intervals (CIs) around the estimate</p></li>
+</ul>
+</li>
+<li><p>Bayesian Statistics</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="o">,</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eg: Probability of Heads in flipping a fair coin</span>
+
+<span class="c1"># Sample Space: set of all possible outcomes that are mutually exclusive &amp; collectively exhaustive</span>
+<span class="n">S</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">}</span>  <span class="c1"># Sampling from Set is inefficient, ∵ most sampling technique requires the population in a deterministic order</span>
+<span class="n">S</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">num_exp</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">exp_results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">num_exp</span><span class="p">)</span>  
+<span class="c1"># Random Sample or simulations from the set assuming uniform distribution</span>
+
+<span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">exp_results</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">num_exp</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability of &quot;</span><span class="p">,</span> <span class="n">unique</span><span class="p">,</span> <span class="s2">&quot; are &quot;</span><span class="p">,</span> <span class="n">P</span> <span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">exp_results</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability of  [&#39;H&#39; &#39;T&#39;]  are  [0.486 0.514]
+</pre></div>
+</div>
+<img alt="../../_images/34f00f86189a36c824d2f8b9f2361246ebe4b3fdced2ac7c2de812247c8384c5.png" src="../../_images/34f00f86189a36c824d2f8b9f2361246ebe4b3fdced2ac7c2de812247c8384c5.png" />
+</div>
+</div>
+<section id="probabilistic-space">
+<h2>Probabilistic Space<a class="headerlink" href="#probabilistic-space" title="Link to this heading">#</a></h2>
+<p>A probabilistic space that models random process consists of three important elements:</p>
+<ol class="arabic simple">
+<li><p><strong>Sample Space</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> or <span class="math notranslate nohighlight">\(S\)</span>: A set of all possible outcomes of an experiments  where the outcomes are mutally exclusive &amp; collectively exhaustive. Since a set of all possible outcomes could be infinite, we need to select the right level of granularity and ignore the irrelevant details. Sample Spaces can be discrete &amp; finite such as coin toss or it could be discrete and infinite such as continuous outcomes such as dart location in a rectangular target where the probability of getting a specific point (a,b) with infinite precision is effectively 0 .</p></li>
+<li><p><strong>Event Space</strong> <span class="math notranslate nohighlight">\(E \text{ or } A,B,C,\dots\)</span>: A collection of events, where each event is a subset of sample space <span class="math notranslate nohighlight">\(E \subset S\)</span>. Events are usually combined through set operations union, intersection, complement.</p></li>
+<li><p><strong>Probability Distribution function (or measure)</strong> <span class="math notranslate nohighlight">\(P : E \rightarrow \mathbb R\)</span>, i.e. a function that takes in an event and returns a real number between [0, 1] indicating the chance of the event occurring following certain probabilistic laws or axioms. Since some outcomes are more likely than others, we need to assign different probability to each outcomes, probability distribution function does this assignment.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Discrete Finite Uniform Case: Two Rolls of Tetrahedral Die</span>
+<span class="c1"># X = First Roll&#39;s Outcome, Y = Second Roll&#39;s Outcome</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">Y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+
+<span class="n">P_X_1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>   <span class="c1"># P(X = 1) = 1/4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; P(X=1) = &quot;</span><span class="p">,</span> <span class="n">P_X_1</span><span class="p">)</span>
+
+<span class="n">Z_min_4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">S</span> <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">P_Z_min_4</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z_min_4</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>            <span class="c1"># P(min(x,y) =4 ) = 1/16</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(Z =min(x,y) = 4 ) = &quot;</span><span class="p">,</span> <span class="n">P_Z_min_4</span><span class="p">)</span>
+
+<span class="n">P_X_gt_Y</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">[:,</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">&gt;</span> <span class="n">S</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>  <span class="c1"># X strictly greater than Y</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(X &gt; Y ) = &quot;</span><span class="p">,</span> <span class="n">P_X_gt_Y</span><span class="p">)</span>
+
+<span class="n">P_sum_even</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">S</span><span class="p">[:,</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">+</span> <span class="n">S</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">%</span><span class="k">2</span> == 0)/len(S)  # sum of two outcome is even
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(X + Y is even) = &quot;</span><span class="p">,</span> <span class="n">P_sum_even</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> P(X=1) =  0.25
+P(Z =min(x,y) = 4 ) =  0.0625
+P(X &gt; Y ) =  0.375
+P(X + Y is even) =  0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Continuous Uniform Case: Dart on a Square</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Discrete Infinite Sample space</span>
+<span class="c1">## Check if Probability laws are satisfied, i.e  P(Omega) = 1</span>
+<span class="c1">## eg P(n) = 1/2^n for n = 1,2,...</span>
+<span class="c1">## find P({3,6,9,...})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="probabilistic-laws-or-axioms">
+<h3>Probabilistic laws or axioms<a class="headerlink" href="#probabilistic-laws-or-axioms" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Non-Negativity: <span class="math notranslate nohighlight">\(P(E) \geq 0\)</span>: also implies <span class="math notranslate nohighlight">\(P(\emptyset) = 0\)</span></p></li>
+<li><p>Normalization: <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>, i.e. <span class="math notranslate nohighlight">\(\Omega\)</span> is collectively exhaustive. <span class="math notranslate nohighlight">\(\therefore P(E) \leq 1\)</span></p></li>
+<li><p>Finite Additivity: For two disjoint events (i.e. <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>): $<span class="math notranslate nohighlight">\(P(A \cup B) = P(A) + P(B)\)</span>$</p>
+<ul>
+<li><p>Extends to a set of mutually exclusive events: $<span class="math notranslate nohighlight">\(P \left ( \bigcup_{i=1}^n E_i \right ) = P(E_1 \cup E_2 \cup \dots E_n) = P(E_1) + P(E_2) + \dots + P(E_n) = \sum_{i=1}^n P(E_i)\)</span>$</p></li>
+<li><p>Defines compliments with normalization: $<span class="math notranslate nohighlight">\(P(\omega) = P(E) + P(E^c) = 1, \quad \therefore P(E^c) = 1 - P(E) \)</span>$</p></li>
+</ul>
+</li>
+<li><p>If events A &amp; B are such that <span class="math notranslate nohighlight">\(A \subseteq B\)</span> then <span class="math notranslate nohighlight">\(P(A) \leq P(B)\)</span></p></li>
+<li><p>For overlapping any two overlapping events A &amp; B:</p>
+<ul>
+<li><p>Union bound: <span class="math notranslate nohighlight">\(P(A U B) \leq P(A) + P(B)\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(P(A \cup B \cup C) = P(A) + P(A^c \cap B) + P(A^c \cap B^c \cap C)\)</span> , can derive more visualizing through set diagrams</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(P(A \cup B) = P(A) + P(B) - P (A \cap B)\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="conditional-probability">
+<h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Link to this heading">#</a></h3>
+<p>Conditional Probability <span class="math notranslate nohighlight">\(P(A | B) = \frac{P(A \cap B)}{P(B)}\)</span> as long as <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>, it follows the above axioms as
+- <span class="math notranslate nohighlight">\(P(A|B) \geq 0\)</span>
+- <span class="math notranslate nohighlight">\(P(B|B)=1\)</span>
+- If <span class="math notranslate nohighlight">\(A_1, A_2, \ldots, A_k\)</span> are mutually exclusive events then $<span class="math notranslate nohighlight">\(P(A_1\cup A_2\cup \ldots \cup A_k|B)=P(A_1|B)+P(A_2|B)+\ldots+P(A_k|B)\)</span>$</p>
+<ul class="simple">
+<li><p>Conditional probability allows to estimate the probability that events A &amp; B both occuring as Multiplication rule of probability or composite probability: $<span class="math notranslate nohighlight">\(P(A \cap B) = P(A|B) \times P(B) = P(B|A) \times P(A)\)</span>$</p></li>
+<li><p>This rule can be extended to three or more events as well $<span class="math notranslate nohighlight">\(\begin{aligned}P(A \cap B \cap C) &amp;=P[(A \cap B) \cap C)] \\ &amp; =\underbrace{P(C | A \cap B)}_{a} \times \underbrace{P(A \cap B)}_{b} \\ &amp;= \underbrace{P(C | A \cap B)}_{a} \times \underbrace{P(B | A) \times P(A)}_{b} \end{aligned}\)</span>$</p></li>
+<li><p>Generalize the Total Probability Theorem: $<span class="math notranslate nohighlight">\(P(B) = P(B \cap A) + P(B \cap A^c)\)</span><span class="math notranslate nohighlight">\( which allows to partition the sample space as weighted average of probabilities of an Event i.e \)</span><span class="math notranslate nohighlight">\(P(B) = P(A_1) \times P(B|A_1) + P(A_2) \times P(B|A_2) + \dots P(A_n) \times P(B|A_n)\)</span>$</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Conditional Probability is important when asking conditional questions on the data</span>
+
+<span class="n">renalTest_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Truth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Renal Disease&#39;</span><span class="p">,</span> <span class="s1">&#39;Healthy&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;TestPositive&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span>
+    <span class="s1">&#39;TestNegative&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">83</span><span class="p">],</span>
+    <span class="s1">&#39;TotalTest&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">137</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">renalTest_df</span><span class="p">)</span>
+
+<span class="c1"># If a person has renal disease, what is the probability of testing positive?</span>
+<span class="c1"># Sensitivity of diagnostic test </span>
+<span class="n">sensitivity</span> <span class="o">=</span> <span class="n">renalTest_df</span><span class="p">[</span><span class="n">renalTest_df</span><span class="p">[</span><span class="s2">&quot;Truth&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Renal Disease&quot;</span><span class="p">][</span><span class="s2">&quot;TestPositive&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="n">renalTest_df</span><span class="p">[</span><span class="n">renalTest_df</span><span class="p">[</span><span class="s2">&quot;Truth&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Renal Disease&quot;</span><span class="p">][</span><span class="s2">&quot;TotalTest&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sensitivity i.e. P(T+|D) = </span><span class="si">{</span><span class="n">sensitivity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># If a person receive a positive test, what is the probability that the person actually has the disease?</span>
+<span class="c1"># &quot;positive predictive value&quot; of diagnostic test</span>
+<span class="n">PP</span> <span class="o">=</span> <span class="n">renalTest_df</span><span class="p">[</span><span class="n">renalTest_df</span><span class="p">[</span><span class="s2">&quot;Truth&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Renal Disease&quot;</span><span class="p">][</span><span class="s2">&quot;TestPositive&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="n">renalTest_df</span><span class="p">[</span><span class="n">renalTest_df</span><span class="p">[</span><span class="s2">&quot;Truth&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Total&quot;</span><span class="p">][</span><span class="s2">&quot;TestPositive&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Positive Predicitive value i.e P(D|T+) = </span><span class="si">{</span><span class="n">PP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># P(D|T+) \neq p(T+|D)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Truth  TestPositive  TestNegative  TotalTest
+0  Renal Disease            44            23         67
+1        Healthy            10            60         70
+2          Total            54            83        137
+Sensitivity i.e. P(T+|D) = 0.6567164179104478
+Positive Predicitive value i.e P(D|T+) = 0.8148148148148148
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="independence-of-events">
+<h3>Independence of Events<a class="headerlink" href="#independence-of-events" title="Link to this heading">#</a></h3>
+<p>Events A and B are independent events if the occurrence of one of them does not affect the probability of the occurrence of the other, or provide no information about the occurence of other. i.e., two events are independent if either: <span class="math notranslate nohighlight">\( P(B|A)=P(B) : P(A) &gt; 0\)</span>  or <span class="math notranslate nohighlight">\(P(A|B)=P(A) : P(B)&gt;0\)</span>. Independence of events allows substitution of conditionals for the multiplicative rule $<span class="math notranslate nohighlight">\(\begin{aligned} P(A \cap B) &amp;= P(A|B) \times P(B) \\ &amp;= P(A) \times P(B) \end{aligned}\)</span><span class="math notranslate nohighlight">\(. This is considered as the alternative definition of independent events i.e. Events A and B are independent events if and only if \)</span>P(A\cap B)=P(A)\times P(B)<span class="math notranslate nohighlight">\(. Else events are dependent and \)</span>P(A \cap B) = P(A) P(B|A)$</p>
+<ul class="simple">
+<li><p>Note: Disjoint events are dependent events i.e if A has occurred implies that event <span class="math notranslate nohighlight">\(P(B|A)=0\)</span></p></li>
+<li><p>Theorem: If A and B are independent event, then</p>
+<ul>
+<li><p>A and B’ are independent</p></li>
+<li><p>A’ and B are indepdendent</p></li>
+<li><p>A’ and B’ are independent</p></li>
+</ul>
+</li>
+</ul>
+<p>Three events A, B and C are mutually independent if and only if the following two conditions hold:</p>
+<ul class="simple">
+<li><p>The events are pairwise independent, i.e.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(P(A\cap B)=P(A)\times P(B)\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A\cap C)=P(A)\times P(C)\)</span> and</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(B\cap C)=P(B)\times P(C)\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(P(A\cap B\cap C)=P(A)\times P(B)\times P(C)\)</span></p></li>
+</ul>
+<p>The idea of mutual independence can be extended to four or more events — each pair, triple, quartet, and so on, must satisfy the above type of multiplication rule.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of non-mutually independent events: Roulette wheel</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="c1"># Event that a spin of roulette wheel yields a RED number</span>
+<span class="n">Red</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">}</span>
+
+<span class="c1"># Event that a spin of the wheel yields an EVEN number</span>
+<span class="n">Even</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">36</span><span class="p">}</span>
+
+<span class="c1"># Event that a spin of the wheel yields a number no greater than 18</span>
+<span class="n">GT18</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">}</span>
+
+<span class="c1"># Pairwise Independence</span>
+<span class="n">P_Red_Even</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Red</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">Even</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">P_Red_GT18</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Red</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">GT18</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">P_Even_GT18</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Even</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">GT18</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">P_Red_Even</span><span class="w"> </span><span class="si">= }</span><span class="s2">,</span><span class="se">\n</span><span class="si">{</span><span class="n">P_Red_GT18</span><span class="w"> </span><span class="si">= }</span><span class="s2">,</span><span class="se">\n</span><span class="si">{</span><span class="n">P_Even_GT18</span><span class="w"> </span><span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">P_Red_Even_GT18</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Red</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">Even</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">GT18</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">P_Red_Even_GT18</span><span class="w"> </span><span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Not Mutually independent events</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P_Red_Even = 0.25,
+P_Red_GT18 = 0.25,
+P_Even_GT18 = 0.25
+P_Red_Even_GT18 = 0.1111111111111111
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bayes-rule">
+<h3>Bayes Rule<a class="headerlink" href="#bayes-rule" title="Link to this heading">#</a></h3>
+<p>Since $<span class="math notranslate nohighlight">\(\begin{aligned} P(A \cap B) &amp;=  P(B \cap A)\\ \therefore P(A|B) \times P(B) &amp;= P(B|A) \times P(A) \\ P(A|B) &amp;= \frac{P(B|A) \times P(A)}{P(B)}\end{aligned}\)</span>$</p>
+<p>If we consider the case of updating the probabilities of hypotheses “H” when given evidence “E”. $<span class="math notranslate nohighlight">\(P(H|E) = \frac{P(E|H)P(H)}{P(E)}\)</span>$</p>
+<ul class="simple">
+<li><p>P(H) is the prior probability of H. It represents our belief in the hypothesis or probability that the hypothesis H occurs, known prior to observing the evidence or any information.</p></li>
+<li><p>P(E) is the marginal likelihood of evidence or just Evidence. It represents the total probability of observing the evidence.</p></li>
+<li><p>P(E∣H) is the likelihood. It represents the probability of observing the evidence E if the hypothesis H is true.</p></li>
+<li><p>P(H∣E) is the posterior probability. It represents the revised belief about the hypothesis H given the event has occured, i.e probability of the hypothesis H being true, given the observed evidence E.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">production_defects_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Factory&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;FractionTotalProduction&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">],</span>
+    <span class="s1">&#39;Probability_defect&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">production_defects_df</span><span class="p">)</span>
+
+<span class="c1">#  If a randomly selected lamp is defective, what is the probability that the lamp was manufactured in factory C ?</span>
+
+<span class="n">P_defective_C</span> <span class="o">=</span> <span class="n">production_defects_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">production_defects_df</span><span class="p">[</span><span class="s1">&#39;Factory&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;Probability_defect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_C</span> <span class="o">=</span> <span class="n">production_defects_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">production_defects_df</span><span class="p">[</span><span class="s1">&#39;Factory&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;FractionTotalProduction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_defective</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">production_defects_df</span><span class="p">[</span><span class="s2">&quot;FractionTotalProduction&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">production_defects_df</span><span class="p">[</span><span class="s2">&quot;Probability_defect&quot;</span><span class="p">])</span>
+
+<span class="n">P_C_defective</span> <span class="o">=</span>  <span class="n">P_C</span> <span class="o">*</span> <span class="n">P_defective_C</span> <span class="o">/</span> <span class="n">P_defective</span>
+
+<span class="n">P_C_defective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Factory  FractionTotalProduction  Probability_defect
+0       A                     0.35               0.015
+1       B                     0.35               0.010
+2       C                     0.30               0.020
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.4067796610169492)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disease</span>
+
+<span class="n">P_D</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Disease is found in 1% of the population</span>
+<span class="n">P_TPositive_D</span> <span class="o">=</span> <span class="mi">95</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Test is positive in 95% of the actual disease cases P(T+ | D)</span>
+
+<span class="c1"># If the person has the disease, what is the probability that the test is positive?</span>
+<span class="n">sensitivity</span> <span class="o">=</span> <span class="n">P_TPositive_D</span>  <span class="c1"># P(T+ | D)</span>
+<span class="c1"># If the person does not have the disease, what is the probability that the test is negative?</span>
+<span class="n">specificity</span> <span class="o">=</span> <span class="n">P_TPositive_D</span>  <span class="c1"># P(T- | ~D)</span>
+
+<span class="c1"># If a person is free of the disease, then the probability that the diagnostic test comes back positive is</span>
+<span class="n">P_TPositive_Healthy</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_TPositive_D</span>
+
+<span class="c1"># given that the blood test is positive for the disease, what is the probability that a person actually has the disease?</span>
+<span class="n">P_TPositive</span> <span class="o">=</span> <span class="n">P_TPositive_D</span> <span class="o">*</span> <span class="n">P_D</span> <span class="o">+</span> <span class="n">P_TPositive_Healthy</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_D</span><span class="p">)</span>
+<span class="n">P_D_TPositive</span> <span class="o">=</span> <span class="n">P_TPositive_D</span> <span class="o">*</span> <span class="n">P_D</span> <span class="o">/</span> <span class="n">P_TPositive</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P_D_TPositive</span><span class="p">)</span>
+<span class="c1">#  Table can be used as an alternative way of finding &quot;reverse conditional probabilities such as P(D|T+), </span>
+<span class="c1">#  when you know the the &quot;forward conditional probability&quot; P(T+|D)</span>
+
+
+<span class="c1"># Even though the Test for disease for actual cases is 95% accurate, because of the rarity of the disease, </span>
+<span class="c1"># the test is seemingly not accurate enough to predict if a person has a disease. </span>
+<span class="c1"># Hence even if the test is positives, the person is unlikely to have the dieases</span>
+
+<span class="c1"># Strategy used to improve accuracy is retesting</span>
+<span class="c1"># In this case, the population of interest is not all people, but instead those people who got a positive result on a first test. </span>
+<span class="n">P_D</span> <span class="o">=</span> <span class="n">P_D_TPositive</span>
+<span class="c1"># If a second blood test on a person comes back positive for the disease, what is the probability that the person actually has the disease now?</span>
+<span class="n">P_TPositive</span> <span class="o">=</span> <span class="n">P_TPositive_D</span> <span class="o">*</span> <span class="n">P_D</span> <span class="o">+</span> <span class="n">P_TPositive_Healthy</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_D</span><span class="p">)</span>
+<span class="n">P_D_TPositive</span> <span class="o">=</span> <span class="n">P_TPositive_D</span> <span class="o">*</span> <span class="n">P_D</span> <span class="o">/</span> <span class="n">P_TPositive</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P_D_TPositive</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16101694915254225
+0.7847826086956519
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>?<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate k coin flips and repeat the experiment n times</span>
+<span class="n">S</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;T&#39;</span><span class="p">}</span>  <span class="c1"># Sample Space</span>
+
+<span class="k">def</span> <span class="nf">gen_counts</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+  <span class="n">exp_results</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>   <span class="c1"># matrix of n X k with value 1 and -1</span>
+  <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">exp_results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">S</span>
+
+<span class="n">k</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">,</span> <span class="mi">1000</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">gen_counts</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Histogram of </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> coin flips&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">,</span> <span class="mi">1000</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">S</span> <span class="o">=</span> <span class="n">gen_counts</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Histogram of </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> coin flips&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;T&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here the sum(<span class="math notranslate nohighlight">\(S_{1000}\)</span>) is not 0 but distributed close to 0. Using probability theory we can calculate how small is <span class="math notranslate nohighlight">\(|S_k|\)</span>. It can be shown that <span class="math notranslate nohighlight">\(|S_k| \geq 4 \sqrt(k)\)</span> which is smaller than 2e-8. As shown in the simulation below.</p>
+<p>If <span class="math notranslate nohighlight">\( k \rightarrow 0\)</span>, then <span class="math notranslate nohighlight">\(4 \sqrt k / k = 4 / \sqrt k \rightarrow 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore if k \rightarrow 0, S_k /k \rightarrow 0\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mf">3.5</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+  <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">j</span>
+  <span class="n">counts</span> <span class="o">=</span> <span class="n">gen_counts</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> flips coin with bounds +- </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="o">-</span><span class="n">d</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1300x350 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/bda52948ab894f57a44614766bae86d0f6adcdc5dfc8612e11d25eb4f3dbc290.png" src="../../_images/bda52948ab894f57a44614766bae86d0f6adcdc5dfc8612e11d25eb4f3dbc290.png" />
+<img alt="../../_images/254f20583f5a3ab4605a057b781845f92f15d781ce5b12c4e7d9fcb18e17fed1.png" src="../../_images/254f20583f5a3ab4605a057b781845f92f15d781ce5b12c4e7d9fcb18e17fed1.png" />
+<img alt="../../_images/e18ea9609030f4d4d5a4dcf5630e58c87872a3435c51896ceacfee431a0071ca.png" src="../../_images/e18ea9609030f4d4d5a4dcf5630e58c87872a3435c51896ceacfee431a0071ca.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rolling a Dice</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>    <span class="c1"># Sample Space</span>
+
+<span class="n">num_exp</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">exp_results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">num_exp</span><span class="p">)</span>  <span class="c1"># Random Sample or simulations from the set assuming uniform distribution</span>
+
+<span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">exp_results</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">num_exp</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability of &quot;</span><span class="p">,</span> <span class="n">unique</span><span class="p">,</span> <span class="s2">&quot; are &quot;</span><span class="p">,</span> <span class="n">P</span> <span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">exp_results</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability of  [1 2 3 4 5 6]  are  [0.172 0.193 0.186 0.15  0.146 0.153]
+</pre></div>
+</div>
+<img alt="../../_images/5e5e5bf1f99c1557c6a29e2cb8b669f05ca3261757ccaee76f6fe135b6185a1a.png" src="../../_images/5e5e5bf1f99c1557c6a29e2cb8b669f05ca3261757ccaee76f6fe135b6185a1a.png" />
+</div>
+</div>
+<p><strong>Discrete Uniform Law</strong> :All <span class="math notranslate nohighlight">\(n\)</span> elements in <span class="math notranslate nohighlight">\(\Omega\)</span> are equally likely. If Event A consist of <span class="math notranslate nohighlight">\(k\)</span> elements, then <span class="math notranslate nohighlight">\(P(A) = k * \frac{1}{n}\)</span></p>
+</section>
+</section>
+<section id="expectation">
+<h2>Expectation<a class="headerlink" href="#expectation" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Roll a dice twice and sum the number, which number would you bet on ?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./mathematics\prob-stats"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DescriptiveStatistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Descriptive Statistics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Distributions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Distributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-space">Probabilistic Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-laws-or-axioms">Probabilistic laws or axioms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-probability">Conditional Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-events">Independence of Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-rule">Bayes Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation">Expectation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rojesh Man Shikhrakar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

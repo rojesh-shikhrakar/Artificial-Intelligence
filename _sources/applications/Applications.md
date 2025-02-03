@@ -1,0 +1,26 @@
+# Applications of AI
+
+- Autonomous Planning & Scheduling:
+  - Autonomous rovers
+  - Telescope Scheduling
+  - Analysis of data astronomy data
+- Medicine:
+  - Image guided surgery
+  - Image analysis and enhancement (Number plate debluring)
+- Transportation
+  - Autonomous vehicle control
+  - Pedestrian detection
+- Games
+  - Chess
+  - Race games
+  - Dota
+- Robotic Toys
+- Gene expression data analysis
+- Prediction of protein structure
+- Text classification, document sorting:
+- Web pages, e-mails
+- Articles in the news
+- Video, image classification
+- Music composition, picture drawing
+- Natural Language Processing
+- Perception

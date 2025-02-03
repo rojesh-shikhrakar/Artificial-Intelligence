@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Descriptive Statistics &#8212; Artificial Intelligence</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mathematics/prob-stats/DescriptiveStatistics';</script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Probability Theory" href="Probability.html" />
+    <link rel="prev" title="Probability and Statistics" href="ProbStats.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Artificial Intelligence - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Artificial Intelligence - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/history.html">The Pursuit of AI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Quest of Intelligence</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../intelligence/natural-intelligence.html">Natural Intelligence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/LinearAlgebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ProbStats.html">Probability and Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Descriptive Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Probability.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Distributions.html">Distributions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence/edit/master/mathematics/prob-stats/DescriptiveStatistics.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/mathematics/prob-stats/DescriptiveStatistics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Descriptive Statistics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description-and-summarization-of-data">Description and Summarization of data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-and-their-level">Data Types and their level</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-tables-charts">Frequency Tables &amp; Charts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-with-small-number-of-distinict-values-categorical-values">Data with small number of distinict values / categorical values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-with-large-variations-of-data-values">Data with large variations of data values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-tendency">Central Tendency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-variability-of-data">Spread (Variability) of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percentiles">Percentiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bell-shaped-data-set">The bell-shaped data-set</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="descriptive-statistics">
+<h1>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h1>
+<section id="description-and-summarization-of-data">
+<h2>Description and Summarization of data<a class="headerlink" href="#description-and-summarization-of-data" title="Link to this heading">#</a></h2>
+<p>Humans have been counting since the Paleolithic or the stone age, where our ancestors (<a class="reference external" href="https://en.wikipedia.org/wiki/Tally_marks">35,000 years ago</a>) used some form of tally marks to count and keep track of quanties. The ancient civiliation such as the Babylonians conducted census to count people, livestocks and quantities. However, the idea became more popular and systematic duing Renaissance in the Italian city-states of Venice and Florence.</p>
+<p>The term statistics got its name from German statistik which came from Latin “statisticum” meaning state affairs. The idea spread through Europe and it became required to reigster birth, marriage and death. Reportings of mortality due to war, epidemic dieases, famines were popular in 1600s and later accounted for all causes of death. In this regard <a class="reference external" href="https://doi.org/10.2307/2982578">John Graunt’s Natural and Political Observations on the Bills of Mortality</a> is considered as a first attempt to draw scientific conclusion from statistical data, such as calculating the population of London using the average deaths by surveying household in certain London neighborhoods.</p>
+<p>It was useful during the plauge to track the mortality in form of tables and calculate mortality rate. The mortality tables were also used to compute the odds that a person of any age would live to any particular age, such data was useful for estimating insurance premium based on the age of the person.</p>
+<p>Over the years, tables and graphs have been used for presenting data in many scenarios, often revealing useful insights about the data such as the range, the trend, the symmetry of data, clusters in the data, outliers and so on.</p>
+<p>Later it became popular as numerical science for other purposes as well but only in 1800s it started evolving as inferential tool with development of regression, correlation analysis and t-test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types-and-their-level">
+<h2>Data Types and their level<a class="headerlink" href="#data-types-and-their-level" title="Link to this heading">#</a></h2>
+<p>TODO</p>
+<ul class="simple">
+<li><p>Discrete (Categorical/ numerical): Sample space contains a finite/countably infinite number of values (1,2,3,…).</p></li>
+<li><p>Continuous: if sample space contains an interval or continuous pan of real number. {h: h &gt; 0}. Theoretically an infinite number of possible outcomes</p></li>
+<li><p>Categorical : if sample space contains objects that are grouped or categorized based on some qualitative traits.</p></li>
+<li><p>Qualitative</p>
+<ul>
+<li><p>Categorical  (other types other than categorical in qualitative ?)</p>
+<ul>
+<li><p>Nominal (?)</p></li>
+<li><p>Ordinal (?)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Quantitative</p>
+<ul>
+<li><p>Integer (<span class="math notranslate nohighlight">\(\mathbb Z\)</span>)</p></li>
+<li><p>Real (<span class="math notranslate nohighlight">\(\mathbb R\)</span>)</p></li>
+<li><p>Complex (<span class="math notranslate nohighlight">\(\mathbb C\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="frequency-tables-charts">
+<h2>Frequency Tables &amp; Charts<a class="headerlink" href="#frequency-tables-charts" title="Link to this heading">#</a></h2>
+<section id="data-with-small-number-of-distinict-values-categorical-values">
+<h3>Data with small number of distinict values / categorical values<a class="headerlink" href="#data-with-small-number-of-distinict-values-categorical-values" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Frequency tables &amp; contingency tables (multiple dimension)</p></li>
+<li><p>line graph / bar graph</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+<span class="n">counts_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+  <span class="n">counts_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">counts_dict</span>
+
+<span class="c1"># Alternatively using pandas</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># One-way frequency table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.10     151
+32.00    151
+5.20     150
+3.14     147
+0.40     143
+16.00    140
+0.00     118
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Grade&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A+&#39;</span><span class="p">,</span><span class="s1">&#39;A+&#39;</span><span class="p">,</span><span class="s1">&#39;A-&#39;</span><span class="p">,</span><span class="s1">&#39;B+&#39;</span><span class="p">,</span><span class="s1">&#39;B+&#39;</span><span class="p">,</span> <span class="s1">&#39;B+&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;C-&#39;</span><span class="p">,</span> <span class="s1">&#39;D+&#39;</span><span class="p">,</span> <span class="s1">&#39;D+&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">17</span><span class="p">],</span>
+                   <span class="s1">&#39;Gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>  <span class="c1"># counts unique combinations of all three variables</span>
+
+<span class="n">counts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">)</span>  <span class="c1"># counts for 1 particular column (one-way frequency table)</span>
+<span class="n">counts_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>col_0</th>
+      <th>counts</th>
+    </tr>
+    <tr>
+      <th>Grade</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A+</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>A-</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>B+</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>B1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>C-</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>D+</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">])</span>  
+<span class="c1"># counts for multiple variables, Two-Way Frequency Tables aka cross tabulation (contingency table)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Grade</th>
+      <th>A+</th>
+      <th>A-</th>
+      <th>B+</th>
+      <th>B1</th>
+      <th>C-</th>
+      <th>D+</th>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># L olipop / stem-line plots distinct data values on horizontal axis and frequencies on vertical</span>
+
+<span class="c1"># bar graph: line in the graph are given added thickness</span>
+<span class="c1"># frequency polygon: plot frequencies on vertical axis and then connects theplotted points with straight lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">counts_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">counts_df</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Stem/Lolipop Plot&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">counts_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">counts_df</span><span class="o">.</span><span class="n">counts</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bar graph&quot;</span><span class="p">)</span>     
+<span class="c1"># counts_df.plot(kind=&quot;bar&quot;), # plt.hist(data) -&gt; hist directly from data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">counts_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">counts_df</span><span class="p">,</span> <span class="s1">&#39;ro-&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Frequency Polygon&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/25c9a08170edf91b60de45a0dfdd8e7693b3b4b63a954347124d19fa928e610c.png" src="../../_images/25c9a08170edf91b60de45a0dfdd8e7693b3b4b63a954347124d19fa928e610c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Relative frequency is the ratio/fraction of frequency &quot;f&quot; of a particular value in a dataset of &quot;n&quot; value. i.e f/n</span>
+<span class="c1"># Pie char is often used to indicate relative frequencies as areas of sector out of total circle when data are categorical</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">counts_df</span><span class="o">.</span><span class="n">counts</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">counts_df</span><span class="o">.</span><span class="n">index</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/475f6d935d1130dee379b07f2e37e22e84cdfa6a36e5e848558780c92df2aa1d.png" src="../../_images/475f6d935d1130dee379b07f2e37e22e84cdfa6a36e5e848558780c92df2aa1d.png" />
+</div>
+</div>
+</section>
+<section id="data-with-large-variations-of-data-values">
+<h3>Data with large variations of data values<a class="headerlink" href="#data-with-large-variations-of-data-values" title="Link to this heading">#</a></h3>
+<p>Grouped into (class) interval tables. The number of class intervals chosen is usally a trade-off between lossing too much information (too few classes) and difficulty in discerning patterns (too many classes, less frequencies). This can also be subjective choice. The endpoints (class boundaries) may overlap in the middle, hence left-end is usually included and right-end excluded, i.e 20-30 interval is [20,30) includes 20 but not 30.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Class Frequency Table</span>
+<span class="n">l_limit</span><span class="p">,</span> <span class="n">r_limit</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1800</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">l_limit</span><span class="p">,</span> <span class="n">r_limit</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span> 
+<span class="n">intervals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l_limit</span><span class="p">,</span><span class="n">r_limit</span><span class="p">,</span><span class="mi">200</span><span class="p">)])</span>
+
+<span class="n">class_freq_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">intervals</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>  <span class="c1"># bins also accept a scalar # bins</span>
+<span class="n">frequency</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="n">l_limit</span><span class="p">,</span> <span class="n">r_limit</span><span class="p">])</span>
+
+<span class="n">class_freq_table</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Class Interval&#39;</span><span class="p">,</span> <span class="s1">&#39;Frequency&#39;</span><span class="p">]</span>
+<span class="n">class_freq_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class Interval</th>
+      <th>Frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(0, 100]</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(200, 300]</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(400, 500]</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>(600, 700]</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(800, 900]</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(1000, 1100]</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(1200, 1300]</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>(1400, 1500]</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>(1600, 1700]</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histogram: Graph plot of class data, with bars place adjacent to each other</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="n">l_limit</span><span class="p">,</span> <span class="n">r_limit</span><span class="p">]);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;histogram&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Num Occurances&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Values&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/46ab2b536b233dbb4d80a544060a1ca35dae23947b4c2ec0ddbe93d08ed9ddd0.png" src="../../_images/46ab2b536b233dbb4d80a544060a1ca35dae23947b4c2ec0ddbe93d08ed9ddd0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cumulative Frequency (ogive) Plot: gives the  number (or proportion) of data whose values are less/more than a point</span>
+<span class="n">cum_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>         <span class="c1"># more than value of interval</span>
+<span class="n">cum_sum2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">frequency</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># less than values of interval</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="n">cum_sum</span><span class="p">,</span> <span class="s1">&#39;ro-&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;More than Ogive Graph&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="n">cum_sum2</span><span class="p">,</span> <span class="s1">&#39;bX-&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Less than Ogive Graph&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c6e4fbf7fcfdb1768faa29458c09cac50e4d7541bed7fb855f662dab7f30a055.png" src="../../_images/c6e4fbf7fcfdb1768faa29458c09cac50e4d7541bed7fb855f662dab7f30a055.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stem and leaf plot: divide data (eg: 62) into stem(6) and leaf(2)</span>
+<span class="c1"># %pip install stemgraphic</span>
+
+<span class="kn">import</span> <span class="nn">stemgraphic</span>
+<span class="n">stemgraphic</span><span class="o">.</span><span class="n">stem_graphic</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">71</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">71</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Stem and leaf plot: divide data (eg: 62) into stem(6) and leaf(2)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># %pip install stemgraphic</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">stemgraphic</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">stemgraphic</span><span class="o">.</span><span class="n">stem_graphic</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">71</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">71</span><span class="p">]);</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;stemgraphic&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="central-tendency">
+<h2>Central Tendency<a class="headerlink" href="#central-tendency" title="Link to this heading">#</a></h2>
+<p>“Center” of the data set is often used as a key statistics to get a feel for the data.</p>
+<p><strong>Sample Mean</strong> $<span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\)</span>$</p>
+<ul class="simple">
+<li><p>For data from frequency table we can use weighted mean <span class="math notranslate nohighlight">\(\bar{x} = \sum_{i=1}^k \frac{f_i*v_i}{n}\)</span></p></li>
+<li><p>Computation of mean for linear transformation in variable. $<span class="math notranslate nohighlight">\(y = ax +b \quad \rightarrow \quad \bar{y} =  \frac{1}{n} \sum_{i=1}^n (a * x_i + b) = a \bar{x} + b\)</span>$</p></li>
+</ul>
+<p><strong>Sample Median</strong>: Middle value ((n+1)/2 for odd n value, and average of n/2 and n/2 + 1 for even) when the data is arranged in ascending order.</p>
+<p><strong>Sample Mode</strong>: value(s) that occurs with highest frequency</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Mean</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s2">&quot;sepal length (cm)&quot;</span><span class="p">]),</span>\
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;sepal length (cm)&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.006, 5.936)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spread-variability-of-data">
+<h2>Spread (Variability) of Data<a class="headerlink" href="#spread-variability-of-data" title="Link to this heading">#</a></h2>
+<p><strong>Sample Variance</strong> : Average square distance between the values. $<span class="math notranslate nohighlight">\(s^2 = = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2  \equiv  \frac{1}{n-1} \sum_{i=1}^n (x_i^2 - n \bar{x}^2)\)</span>$</p>
+<ul class="simple">
+<li><p>Computation of mean for linear transformation in variable. $<span class="math notranslate nohighlight">\( y = ax +b \rightarrow \bar{y} = a \bar{x} +b \rightarrow s_y^2 = = \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar{y})^2 = a^2 s_x^2\)</span>$</p></li>
+<li><p>Sample mean tend to be closer to the data than the actual population mean, if we divide by <span class="math notranslate nohighlight">\(n\)</span> instead of <span class="math notranslate nohighlight">\(n-1\)</span> which results in smaller sample variance than the true population variance. This is more siginficant for small sample size <span class="math notranslate nohighlight">\(n\)</span>. Bessel’s Correction applies <span class="math notranslate nohighlight">\(n-1\)</span> instead of <span class="math notranslate nohighlight">\(n\)</span> in the formula for sample variance to correct this bias in under-estimation of population variance.</p></li>
+</ul>
+<p><strong>Sample Standard Deviation</strong> : Positive square root of sample variance converts variance to the same units as the data values. $<span class="math notranslate nohighlight">\(s^2 = = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2} \)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s2">&quot;sepal length (cm)&quot;</span><span class="p">]),</span>\
+<span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;sepal length (cm)&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.12176400000000002, 0.261104)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="percentiles">
+<h2>Percentiles<a class="headerlink" href="#percentiles" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Sample percentiles (eg: tells which value is greater than 95% of all the data)</p></li>
+</ul>
+<p>The sample 100p percentile is that data value such that at least 100p percent of the data are less than or equal to it and at least 100(1 − p) percent are greater than or equal to it.</p>
+<ul class="simple">
+<li><p>Sample quartiles</p></li>
+<li><p>Sample quantiles</p></li>
+<li><p>Range</p></li>
+<li><p>Interquartile range</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Box-Whisker Plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Chebyshev’s inquality for sample data gives upper bound to the proportion of the data that can differ from the sample mean by more than k times the sample standard deviation.</p>
+<p>We can obtain more precise estimates of the proportion of the data that is within k sample standard deviations of the sample mean.</p>
+</section>
+<section id="the-bell-shaped-data-set">
+<h2>The bell-shaped data-set<a class="headerlink" href="#the-bell-shaped-data-set" title="Link to this heading">#</a></h2>
+<p>estimates given by “empirical rule”</p>
+<p>Scattered diagram for Paired value data to study correlations</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./mathematics\prob-stats"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ProbStats.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Probability and Statistics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Probability.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probability Theory</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description-and-summarization-of-data">Description and Summarization of data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-and-their-level">Data Types and their level</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-tables-charts">Frequency Tables &amp; Charts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-with-small-number-of-distinict-values-categorical-values">Data with small number of distinict values / categorical values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-with-large-variations-of-data-values">Data with large variations of data values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-tendency">Central Tendency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-variability-of-data">Spread (Variability) of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percentiles">Percentiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bell-shaped-data-set">The bell-shaped data-set</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rojesh Man Shikhrakar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

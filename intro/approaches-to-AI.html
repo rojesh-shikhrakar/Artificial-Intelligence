@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Approaches to Artificial Intelligences &#8212; Artificial Intelligence</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro/approaches-to-AI';</script>
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Artificial Intelligence - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Artificial Intelligence - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="history.html">The Pursuit of AI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Quest of Intelligence</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intelligence/natural-intelligence.html">Natural Intelligence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mathematics/linear-algebra/LinearAlgebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mathematics/prob-stats/ProbStats.html">Probability and Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/prob-stats/DescriptiveStatistics.html">Descriptive Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/prob-stats/Probability.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/prob-stats/Distributions.html">Distributions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence/edit/master/intro/approaches-to-AI.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/intro/approaches-to-AI.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Approaches to Artificial Intelligences</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-and-human-behavior-and-thinking">Rational and Human Behavior and Thinking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-act-like-humans-turing-test-approach">Systems that act like humans: Turing Test Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-think-like-humans-cognitive-modeling-science-approach">Systems that think like humans: Cognitive Modeling (Science) Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-think-rationally-laws-of-thought">Systems that think “rationally”: “laws of thought”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-act-rationally-rational-agent">Systems that act rationally: “Rational agent”</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="approaches-to-artificial-intelligences">
+<h1>Approaches to Artificial Intelligences<a class="headerlink" href="#approaches-to-artificial-intelligences" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Top Down Approach: Humans approach where we reason about a problem to solve it. It is symbolic approach involving extracting knowledge and representing it in symbolic form, and develop a model to reason about it. also known as “Good Old-Fashioned Artificial Intelligence” (GOFAI)</p></li>
+<li><p>Bottom-up Approach: where we build model that replicates how brain works (huge interconnection of neurons) by building Neural Networks and train them with training data.</p></li>
+<li><p>Alternaitive Approaches</p>
+<ul>
+<li><p>Evolutionary Approach: Algorithms based on evolutionary principles such as Genetic Algorithms</p></li>
+<li><p>Emergent Complex system Approach: Build complex system with large number of simple agents that interacts with each other and environment with certain emergent behaviors.</p></li>
+</ul>
+</li>
+</ul>
+<section id="rational-and-human-behavior-and-thinking">
+<h2>Rational and Human Behavior and Thinking<a class="headerlink" href="#rational-and-human-behavior-and-thinking" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>making computers think</p></li>
+<li><p>the automation of activities we associate with human thiking, like decision making, learning</p></li>
+<li><p>art of creating machines that perform functions that require intelligence when performed by people</p></li>
+<li><p>study of mental faculties through the use of computational models.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Human</p></th>
+<th class="head"><p>Rational</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Though</p></td>
+<td><p>Systems that think like humans</p></td>
+<td><p>Systems that think rationally</p></td>
+</tr>
+<tr class="row-odd"><td><p>Behaviour</p></td>
+<td><p>Systems that act like humans</p></td>
+<td><p>Systems that act rationally</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="systems-that-act-like-humans-turing-test-approach">
+<h3>Systems that act like humans: Turing Test Approach<a class="headerlink" href="#systems-that-act-like-humans-turing-test-approach" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>“The art of creating machines that perform functions that require intelligence when performed by people.” (Kurzweil)</p></li>
+<li><p>“The study of how to make computers do things at which, atthe moment, people are better.” (Rich and Knight)</p></li>
+</ul>
+<p>Turing Test:</p>
+<p>You enter a room which has a computer terminal. You
+have a fixed period of time to type what you want into
+the terminal, and study the replies. At the other end of
+the line is either a human being or a computer system.</p>
+<p>If it is a computer system, and at the end of the period
+you cannot reliably determine whether it is a system or
+a human, then the system is deemed to be intelligent.</p>
+<p>a human questioner cannot tell if there is a computer or a human answering his question, via teletype
+(remote communication).</p>
+<p>The computer must behave intelligently to achieve human-level performance in all cognitive tasks such as</p>
+<ul class="simple">
+<li><p>Natural language processing for communication with human</p></li>
+<li><p>Knowledge representation to store information effectively &amp; efficiently</p></li>
+<li><p>Automated reasoning to retrieve &amp; answer questions using the stored information</p></li>
+<li><p>Machine learning to adapt to new circumstances</p></li>
+<li><p>Computer vision to perceive objects (seeing)</p></li>
+<li><p>Robotics to move objects (acting)</p></li>
+</ul>
+</section>
+<section id="systems-that-think-like-humans-cognitive-modeling-science-approach">
+<h3>Systems that think like humans: Cognitive Modeling (Science) Approach<a class="headerlink" href="#systems-that-think-like-humans-cognitive-modeling-science-approach" title="Link to this heading">#</a></h3>
+<p>Humans as observed from “inside”</p>
+<ul class="simple">
+<li><p>How do we know how humans think?</p></li>
+<li><p>Introspection vs. psychological experiments</p></li>
+<li><p>“The exciting new effort to make computers think …
+machines with minds in the full and literal sense”
+(Haugeland)</p></li>
+<li><p>“[The automation of] activities that we associate with
+human thinking, activities such as decision-making,
+problem solving, learning …” (Bellman)</p></li>
+</ul>
+</section>
+<section id="systems-that-think-rationally-laws-of-thought">
+<h3>Systems that think “rationally”: “laws of thought”<a class="headerlink" href="#systems-that-think-rationally-laws-of-thought" title="Link to this heading">#</a></h3>
+<p>“Rationality” refers to the thought process that is based on reasoning from knowledge to logically arrive at a conclusion or decision. Rational thinking is about applying logic to find sound explanations.</p>
+<p>However, Humans are not always “rational”. Human are social and emotion being with many cognitive biases which can divert us from rationality and lead us to flawed decision making. <a class="reference external" href="https://www.discovermagazine.com/mind/the-reasons-why-we-do-irrational-things">Sometimes the desire to novelty, survival and safety is also associated with our irrational behavior.</a>. Hence Logic can’t express everything, and hence the need to account for uncertainty.</p>
+<ul class="simple">
+<li><p>“The study of mental facilities through the use of
+computational models” (Charniak and McDermott)</p></li>
+<li><p>“The study of the computations that make it possible to
+perceive, reason, and act” (Winston)</p></li>
+</ul>
+</section>
+<section id="systems-that-act-rationally-rational-agent">
+<h3>Systems that act rationally: “Rational agent”<a class="headerlink" href="#systems-that-act-rationally-rational-agent" title="Link to this heading">#</a></h3>
+<p>Rational behavior: doing the right thing
+The right thing: that which is expected to maximize goal
+achievement, given the available information</p>
+<ul class="simple">
+<li><p>replicates human thought processes</p></li>
+<li><p>makes the same decisions as humans</p></li>
+<li><p>uses purely logical reasoning</p></li>
+</ul>
+<p>Logic is only part of rational agent, not all of rationality. Sometimes logic cannot reason a correct conclusion. At that time, some specific (in domain) human knowledge or information is used.
+Thus, it covers more generally different situations of
+problems.</p>
+<p>Studing AI as rational agent has few advantages</p>
+<ul class="simple">
+<li><p>It is more general than using logic only (Logic + Domain knowledge)</p></li>
+<li><p>It allows extention of the approach with more scientific methods</p></li>
+</ul>
+<p>Rational Agents:
+An agent is an entity that perceives and acts. Abstractly, an agent is a function from percept histories to actions: [f: P* –&gt; A]</p>
+<p>For any given class of environments and tasks, we seek the agent (or class of agents) with the best performance</p>
+<ul class="simple">
+<li><p>Caveat: computational limitations make perfect rationality unachievable. design best program for given machine resources</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-and-human-behavior-and-thinking">Rational and Human Behavior and Thinking</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-act-like-humans-turing-test-approach">Systems that act like humans: Turing Test Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-think-like-humans-cognitive-modeling-science-approach">Systems that think like humans: Cognitive Modeling (Science) Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-think-rationally-laws-of-thought">Systems that think “rationally”: “laws of thought”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-that-act-rationally-rational-agent">Systems that act rationally: “Rational agent”</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rojesh Man Shikhrakar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

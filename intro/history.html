@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The Pursuit of AI &#8212; Artificial Intelligence</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro/history';</script>
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Natural Intelligence" href="../intelligence/natural-intelligence.html" />
+    <link rel="prev" title="Artificial Intelligence" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Artificial Intelligence - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Artificial Intelligence - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Pursuit of AI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Quest of Intelligence</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intelligence/natural-intelligence.html">Natural Intelligence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../mathematics/linear-algebra/LinearAlgebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mathematics/prob-stats/ProbStats.html">Probability and Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/prob-stats/DescriptiveStatistics.html">Descriptive Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/prob-stats/Probability.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/prob-stats/Distributions.html">Distributions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/rojesh-shikhrakar/Artificial-Intelligence/edit/master/intro/history.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/intro/history.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Pursuit of AI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ancient-myths-and-automata">Ancient Myths and Automata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-of-enlightenment">Age of Enlightenment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-birth-of-ai">The Birth of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dartmouth-conference-1956">The Dartmouth Conference (1956)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-early-ai">The Early AI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rise-of-ai">The Rise of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ai-winter">The AI Winter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-revival-of-ai">The Revival of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data-and-machine-learning">Big Data and Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-revolution">Deep Learning Revolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llms-and-genai-revolution">LLMs and GenAI Revolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-future-of-ai">The Future of AI</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-pursuit-of-ai">
+<h1>The Pursuit of AI<a class="headerlink" href="#the-pursuit-of-ai" title="Link to this heading">#</a></h1>
+<p>The pursuit to AI dates back to ancient times in ancient civilization through myths, stories, and rumors of artificial beings (idea of robots) with intelligence or consciousness that can perform tasks on their own.</p>
+<section id="ancient-myths-and-automata">
+<h2>Ancient Myths and Automata<a class="headerlink" href="#ancient-myths-and-automata" title="Link to this heading">#</a></h2>
+<p><strong>Greek Mythology</strong> (~700 BC): Zeus, the king of Greek gods, commisioned Hephaestus, the Greek god of invention and blacksmithing to build <a class="reference external" href="https://news.stanford.edu/2019/02/28/ancient-myths-reveal-early-fantasies-artificial-life/">Talos</a> a bronze giant build by to protect the island of Crete. Talos stood guard over the island, tirelessly patrolling the shores three times a day and hurled massive boulders towards invading enemy ships. Talos had a tube running from his head to feet that carried a mysterious life-giving elixir called ‘ichor’. Later in another text sorceress Medea defeated Talos by removing a bolt of Talos ankle draining the ichor fluid. Hephaestus also build an artificial evil woman sent to Earth with task to punish humans for discovering fire. Hephaestus also created several young golden Maidens.</p>
+<p><strong>Jewish folklore</strong>, Golems created from inanimate matter such as clay or mud are brought to life to serve some purpose such as to defen against antisemitic attacks. Even in the Bible God create man from dust “the Lord God formed man of the dust of the ground, and breathed into his nostrils the breath of life; and man became a living soul.”</p>
+<p><strong>Hindu mythology</strong> the Vishwakarma, the god of craftsmanship and the architect of gods, and the sorceress Maya had created automation along with many architectural wonders. Vishwakarma (meaning: world creator) is also regarded as the creator of the Brahma, Vishnu and Shiva. Furthemore, Indian Lokapannatti (collection of cycles and lores from 11 century AD), tells the story of how an army of automated soldiers (bhuta vahana yanta) were crafted to protect the relics of Buddha in a secret stupa.</p>
+<p><strong>Automata</strong>: In ancient China and Greece, inventors created automata, which were self-operating machines designed to mimic human actions. The first recorded of artificial automation was <a class="reference external" href="https://www.ancient-origins.net/history-famous-people/steam-powered-pigeon-002179">steam-powered pigeon by Archytas of Tarentum (428 BC)</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/History_of_robots">Hero of Alexandria (10-70 CE) constructed an automata puppet theater, where the figurines and the stage sets moved by mechanical means. Among the first verifiable automation is a humanoid knight drawn by Leonardo da Vinci in around 1495</a>.</p>
+<p><img alt="LeonardoRobot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Leonardo-Robot3.jpg/800px-Leonardo-Robot3.jpg" /></p>
+</section>
+<section id="age-of-enlightenment">
+<h2>Age of Enlightenment<a class="headerlink" href="#age-of-enlightenment" title="Link to this heading">#</a></h2>
+<p><strong>1600s</strong>: The 1600s saw the rise of the Scientific Revolution, which emphasized the use of reason and experimentation to understand the natural world. This period saw the development of new mathematical and scientific theories, which laid the foundation for the development of modern AI.</p>
+<p><strong>1700s</strong>: The 1700s saw the development of the first mechanical computers, such as the Pascaline and the Jacquard loom. These machines were designed to perform repetitive tasks, and they laid the foundation for the development of modern computing.</p>
+<p>The term “robot” was coined in a satire play published by the Czech Karel Čapek in 1921. R.U.R. (Rossum’s Universal Robots), robots were manufactured biological beings that performed all unpleasant manual labors.</p>
+</section>
+<section id="the-birth-of-ai">
+<h2>The Birth of AI<a class="headerlink" href="#the-birth-of-ai" title="Link to this heading">#</a></h2>
+<p>The World Wars were not just a period of immense destruction and suffering but also acted as catalysts for rapid technological advancement and discoveries. The need for complex calculations (ballistic calculation) and crypt decoding led to the development of the first programmable computers such as ENIAC (Electronic Numerical Integrator and Computer) and Colossus. These programmable machines were used for a variety of purposes, including military and scientific research. Later, commercial computers such as UNIVAC I (Universal Automatic Computer) (1951) IBM 701 (1952), were developed, which were used for a variety of purposes, including business data processing and scientific calculations.</p>
+<section id="the-dartmouth-conference-1956">
+<h3>The Dartmouth Conference (1956)<a class="headerlink" href="#the-dartmouth-conference-1956" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Coining the Term “AI”</strong>: The term “artificial intelligence” was coined during the Dartmouth Conference, organized by John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon.</p></li>
+<li><p><strong>The Proposal</strong>: The proposal stated that “every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it.”</p></li>
+</ul>
+<p>However in early 1950s, there were various names for the field of “thinking machines” such as automata theory, cybernetics and complex information processing and so on. <a class="reference external" href="https://en.wikipedia.org/wiki/Dartmouth_workshop">In 1955 John McCarthy, professor of Mathematics at Dartmouth college coined the name “Artificial Intelligence” for the new field and with Marving Misky, Nathaniel Rochester and Claude Shannon proposed a 2-month, 10-man study of artificial intelligence during summer of 1956</a> to discuss and study on how to make machine use language, form abstractions and concepts to solve problems requiring some intelligence. Allen Newell and Herbert Simon has a reasoning program the Logic Theorist (LT) capable of thinking non-numerically and later was able to prove many theorems. The Darthmouth workshop did not lead to any new breakthroughs, but the discussion topics from this conference  initiated different domain such as the rise of symbolic theorem proving methods, early expert system and deductive systems versus inductive systems.</p>
+</section>
+<section id="the-early-ai">
+<h3>The Early AI<a class="headerlink" href="#the-early-ai" title="Link to this heading">#</a></h3>
+<p><strong>Checkers(1952)</strong>: Developed by Arthur Samuel, this program was designed to play checkers and improved its performance through trial and error. It played at strong amateur level.</p>
+<p><strong>Logic Theorist (1955)</strong>: Created by Allen Newell and Herbert A. Simon, this program was designed to mimic human problem-solving skills and proved theorems in symbolic logic.</p>
+<ul class="simple">
+<li><p><strong>General Problem Solver (1957)</strong>: Another creation by Newell and Simon, this program aimed to solve a wide range of search problems using a heuristic approach.</p></li>
+</ul>
+</section>
+</section>
+<section id="the-rise-of-ai">
+<h2>The Rise of AI<a class="headerlink" href="#the-rise-of-ai" title="Link to this heading">#</a></h2>
+<p><strong>ELIZA (1966)</strong>: Developed by Joseph Weizenbaum, ELIZA was an early natural language processing program that simulated a conversation with a psychotherapist.</p>
+<p><strong>Shakey the Robot (1966-1972)</strong>: Created by the Stanford Research Institute, Shakey was the first robot to use AI to navigate and perform tasks in a structured environment.</p>
+<section id="the-ai-winter">
+<h3>The AI Winter<a class="headerlink" href="#the-ai-winter" title="Link to this heading">#</a></h3>
+<p>There was overwhelming optimisim in the 1960s, with many researchers believing that AI would soon be able to perform tasks that were previously considered impossible.</p>
+<ul>
+<li><blockquote>
+<div><p>“Machines will be capable, within twenty years, of doing any work a man can do.” — Herbert Simon</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>“Within 10 years the problems of artificial intelligence will be substantially solved.” — Marvin Minsky</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>“I visualize a time when we will be to robots what dogs are to humans, and I’m rooting for the machines.” — Claude Shannon</p>
+</div></blockquote>
+</li>
+</ul>
+<p>However, this optimism was not well-founded, and the field faced several challenges that slowed its progress. Machine translation was not able to match human performance, and the field faced a lack of funding and resources.</p>
+<p><strong>The AI Winter</strong>: In the 1970s and 1980s, AI research faced significant funding cuts due to unmet expectations and slow progress, leading to a period known as the “AI Winter.”</p>
+</section>
+</section>
+<section id="the-revival-of-ai">
+<h2>The Revival of AI<a class="headerlink" href="#the-revival-of-ai" title="Link to this heading">#</a></h2>
+<p><strong>Expert Systems</strong>: AI research saw a resurgence with the development of expert systems, which used knowledge-based approaches to solve specific problems.</p>
+<p><strong>Deep Blue (1997)</strong>: IBM’s Deep Blue made history by defeating world chess champion Garry Kasparov, showcasing the potential of AI in complex problem-solving.</p>
+</section>
+<section id="big-data-and-machine-learning">
+<h2>Big Data and Machine Learning<a class="headerlink" href="#big-data-and-machine-learning" title="Link to this heading">#</a></h2>
+<p><strong>Machine Learning and Big Data</strong>: Advances in machine learning algorithms and the availability of big data have propelled AI research forward.</p>
+</section>
+<section id="deep-learning-revolution">
+<h2>Deep Learning Revolution<a class="headerlink" href="#deep-learning-revolution" title="Link to this heading">#</a></h2>
+<p><strong>AlphaGo (2016)</strong>: Developed by DeepMind, AlphaGo defeated world champion Go player Lee Sedol, demonstrating the power of deep learning and reinforcement learning.</p>
+<p><strong>Virtual Assistants</strong>: AI-powered virtual assistants like Siri, Alexa, and Google Assistant have become integral parts of our daily lives.</p>
+<p><strong>Autonomous Vehicles</strong>: Companies like Tesla and Waymo are developing self-driving cars that use AI to navigate and make decisions on the road.</p>
+</section>
+<section id="llms-and-genai-revolution">
+<h2>LLMs and GenAI Revolution<a class="headerlink" href="#llms-and-genai-revolution" title="Link to this heading">#</a></h2>
+<p><strong>Large Language Models (LLMs)</strong>: The advent of LLMs like GPT-3 and GPT-4 has revolutionized natural language processing and generated significant interest in AI research.</p>
+<p><strong>Generative AI</strong>: The emergence of generative AI, such as DALL-E and Stable Diffusion, has opened up new possibilities for creative applications like image and video generation.</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>timeline LR
+    title History of Deep Learning
+    section Golden Age
+    1940 : S.McCulloch &amp; Pitts&#39; Electronic Brain, Adjustable but not learnable weights
+    1950s : 1950 Alan Turing Paper: Can Machine Think ? - concept of learning
+          : 1956 Dartmouth Conference John McCarthy coins the term AI
+          : 1957 Rosenblatt Learnable Perceptron
+    Section  AI Winter [Dark Era]
+		1967 : Nearest Neighbors
+    1969 : M. Minsky and S. Papert XOR Problem
+    section AI Winter II
+    1974 : Werbos et.al Backpropagation
+    1980s: Kohonen Self Organizing Map
+         : Bayesian Networks
+         : 1985 Hinton &amp; Sijnowski, Boltzmann Machines
+         : 1986 Rumelhart, Hinton, Wiliams Multi Layer Perceptron (Backpropagation)
+         : 1986 Smolensky Restricted Boltzmann Machines
+         : 1986 Jordan RNN
+    1990 : Lecun, LeNet
+         : 1995 Vapnik &amp; Cortes SVM and Kernel Functions
+         : 1997 Schuster &amp; Paliwal Bidirectional RNN
+         : 1997 Hochreiter &amp; Schmidhuber LSTMS
+         : 1997 IBM&#39;s Deep Blue defeats Garry Kasparaov in Chess
+    section After AI Winter II
+    2000 : Graphical Models
+				 : 2006 Hinton Deep Belief Networks - Pretraining
+         : 2006 Salakhutdinov &amp; Hintorn Deep Boltzman Machines
+         : 2009 Fei-Fei Li ImageNet Challenge
+    Section Era of Deep Learning
+    2012 : Krizhevsky, Sutskever, Hinton AlexNet
+         : Hinton Dropout
+    2014 : Goodfellow GANs
+         : VGG, GoogleNet
+    Section Era of LLMs
+    2017 : Vaswani et. all  Attention is All you need (Transformers)
+         : 2018 OpenAI GPT-1 released
+         : 2022 OpenAI Chat GPT
+</pre></div>
+</div>
+</section>
+<section id="the-future-of-ai">
+<h2>The Future of AI<a class="headerlink" href="#the-future-of-ai" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Artificial Intelligence</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../intelligence/natural-intelligence.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Natural Intelligence</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ancient-myths-and-automata">Ancient Myths and Automata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-of-enlightenment">Age of Enlightenment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-birth-of-ai">The Birth of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dartmouth-conference-1956">The Dartmouth Conference (1956)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-early-ai">The Early AI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rise-of-ai">The Rise of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ai-winter">The AI Winter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-revival-of-ai">The Revival of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data-and-machine-learning">Big Data and Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-revolution">Deep Learning Revolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llms-and-genai-revolution">LLMs and GenAI Revolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-future-of-ai">The Future of AI</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rojesh Man Shikhrakar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
