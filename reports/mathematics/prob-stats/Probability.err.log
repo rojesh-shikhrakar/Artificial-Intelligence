@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "C:\Users\FM-PC-LT-235\AppData\Local\pypoetry\Cache\virtualenvs\processworkers-fKY3n16l-py3.12\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\FM-PC-LT-235\AppData\Local\pypoetry\Cache\virtualenvs\processworkers-fKY3n16l-py3.12\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\FM-PC-LT-235\AppData\Local\pypoetry\Cache\virtualenvs\processworkers-fKY3n16l-py3.12\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\FM-PC-LT-235\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\FM-PC-LT-235\AppData\Local\pypoetry\Cache\virtualenvs\processworkers-fKY3n16l-py3.12\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\FM-PC-LT-235\AppData\Local\pypoetry\Cache\virtualenvs\processworkers-fKY3n16l-py3.12\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\FM-PC-LT-235\AppData\Local\pypoetry\Cache\virtualenvs\processworkers-fKY3n16l-py3.12\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Generate k coin flips and repeat the experiment n times
+S = {1:'H', -1:'T'}  # Sample Space
+
+def gen_counts(k=1000, n=1000):
+  exp_results = 2 * (np.random.rand(n, k) > 0.5) - 1   # matrix of n X k with value 1 and -1
+  S = np.sum(exp_results, axis=0)
+  return S
+
+k, n = 1000 , 1000
+S = gen_counts(k=k,n=n)
+sns.histplot(T, discrete=True).set(title=f"Histogram of {k} coin flips")
+plt.xlim(-k,k)
+plt.show()
+
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[10], line 11[0m
+[0;32m      9[0m k, n [38;5;241m=[39m [38;5;241m1000[39m , [38;5;241m1000[39m
+[0;32m     10[0m S [38;5;241m=[39m gen_counts(k[38;5;241m=[39mk,n[38;5;241m=[39mn)
+[1;32m---> 11[0m sns[38;5;241m.[39mhistplot([43mT[49m, discrete[38;5;241m=[39m[38;5;28;01mTrue[39;00m)[38;5;241m.[39mset(title[38;5;241m=[39m[38;5;124mf[39m[38;5;124m"[39m[38;5;124mHistogram of [39m[38;5;132;01m{[39;00mk[38;5;132;01m}[39;00m[38;5;124m coin flips[39m[38;5;124m"[39m)
+[0;32m     12[0m plt[38;5;241m.[39mxlim([38;5;241m-[39mk,k)
+[0;32m     13[0m plt[38;5;241m.[39mshow()
+
+[1;31mNameError[0m: name 'T' is not defined
+
